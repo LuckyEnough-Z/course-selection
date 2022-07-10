@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bysj?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    servlet:
+      content-type: text/html
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+
+
+
+mybatis-plus:
+  # 实体类扫描路径
+  type-aliases-package: nuc.bysjxtglxt.pojo
+  # xml 扫描路径
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+  global-config:
+    # 关闭 mybatis-plus的 banner
+    banner: false
+
+# 打印sql
+logging:
+  level:
+    nuc.bysjxtglxt.mapper : debug
